@@ -32,5 +32,37 @@ def find2(source, target):
     return -1
 
 
+# 查找第一个大于等于给定值的元素
+def find3(source, target):
+    low, high = 0, len(source)-1
+    while low <= high:
+        mid = (high - low) // 2 + low
+        if source[mid] >= target:
+            if mid == 0 or source[mid - 1] < mid:
+                return mid
+            else:
+                high = mid - 1
+        else:
+            low = mid + 1
+    return -1
+
+
+# 查找最后一个小于等于给定值的元素
+def find4(source, target):
+    low, high = 0, len(source)-1
+    while low <= high:
+        mid = (high - low) // 2 + low
+        if source[mid] <= target:
+            if mid == len(source) - 1 or source[mid + 1] > target:
+                return mid
+            else:
+                low = mid + 1
+        else:
+            high = mid-1
+    return -1
+
+
 print(find1([1, 3, 4, 5, 6, 8, 8, 8, 11, 18], 8))
 print(find2([1, 3, 8, 8, 8, 11, 18], 8))
+print(find3([3, 4, 6, 7, 10], 2))
+print(find4([3, 4, 6, 8, 9, 10], 2))
