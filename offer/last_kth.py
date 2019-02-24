@@ -7,7 +7,7 @@ def last_kth(link, k):
             return None
         fast = fast.next
         k -= 1
-    while fast:
+    while fast.next:
         link = link.next
         fast = fast.next
     return link
