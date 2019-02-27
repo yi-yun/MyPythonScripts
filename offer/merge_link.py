@@ -1,3 +1,4 @@
+# 合并链表
 def merge_link(head1, head2):
     if not head1:
         return head2

@@ -1,3 +1,4 @@
+# Linked Last Kth
 def last_kth(link, k):
     if link is None or k <= 0:
         return None

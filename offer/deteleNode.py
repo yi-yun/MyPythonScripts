@@ -1,4 +1,7 @@
 # need confirm exist
+# del Tree Node
+
+
 def delete_node(link, node):
     # 只有一个节点
     if link == node:
