@@ -24,15 +24,17 @@ def bfs_change(tree):
     ret = []
     while queue:
         node = queue.pop(0)
-        while count:
-            print(node.val)
-            count -= 1
-        ret.append(node.val)
-        nextLevel = 1 if node.left or node.right else 0
-        if nextLevel == 1:
+        print(node.val)
+        count -= 1
+        if count == 0:
             print("\n")
+            count = nextLevel
+            nextLevel = 0
+        ret.append(node.val)
         if node.left:
+            nextLevel += 1
             queue.append(node.left)
         if node.right:
+            nextLevel += 1
             queue.append(node.right)
     return ret
