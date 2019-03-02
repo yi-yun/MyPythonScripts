@@ -4,8 +4,4 @@ def test(target):
     return target
 
 
-def test1(source):
-    dic = {}
-
-
 print(test([2, 0, 1]))
