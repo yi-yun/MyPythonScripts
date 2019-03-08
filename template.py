@@ -1,7 +1,3 @@
-'''
-Created on Nov 6th, 2014
-@author: Speedcell
-'''
 
 '''Python的输入是野生字符串，所以要自己转类型
 strip去掉左右两端的空白符，返回str
@@ -10,14 +6,14 @@ map把list里面的值映射到指定类型，返回[type]
 EOF用抓异常
 print后面加逗号就不会换行，否则反之，当然3.x君自行传参
 题目细节没看太细，可能有的地方不对，不要在意这些细节啦
-これは以上です'''
+'''
 
 # 有多组输入数据，但没有具体的告诉你有多少组，只是让你对应每组输入，应该怎样输出。
 
 while True:
     try:
         a, b = map(int, input().strip().split())
-        print(a + b,)
+        print(a, b,)
     except EOFError:
         break
 
@@ -26,7 +22,7 @@ while True:
 tcase = int(input().strip())
 for case in range(tcase):
     a, b = map(int, input().strip().split())
-    print(a + b,)
+    print(a, b,)
 
 # 有多组输入数据，没有具体的告诉你有多少组,但是题目却告诉你遇见什么结束
 
@@ -34,7 +30,7 @@ while True:
     a, b = map(int, input().strip().split())
     if a == 0 and b == 0:
         break
-    print(a + b,)
+    print(a, b,)
 
 # 输入有多组，并却题目告诉你每组输入遇见什么结束，与第三种不同之处在于，每组输入都有相应的细化。
 
@@ -43,13 +39,13 @@ for case in range(tcase):
     a, b = map(int, input().strip().split())
     if a == 0 and b == 0:
         break
-    print(a + b,)
+    print(a, b,)
 
 # 这次的输入实现输入一个整数，告诉我们有多少行，在输入每一行。对于每一行的输入，有划分为第一个数和其他的数，第一个数代表那一组数据一共有多少输入。
 
 tcase = int(input().strip())
 for case in range(tcase):
-    data = map(int, input().strip().split())
+    data = list(map(int, input().strip().split()))
     n, array = data[0], data[1:]
 
     sum = 0
@@ -61,7 +57,7 @@ for case in range(tcase):
 
 while True:
     try:
-        data = map(int, input().strip().split())
+        data = list(map(int, input().strip().split()))
         n, array = data[0], data[1:]
 
         sum = 0
@@ -76,7 +72,7 @@ while True:
 while True:
     try:
         a, b = map(int, input().strip().split())
-        print a + b
+        print(a, b)
     except EOFError:
         break
 
@@ -85,9 +81,10 @@ while True:
 while True:
     data = input().strip()
     if data.isspace():
+        print("is space")
         break
     else:
-        data = map(int, data)
+        data = list(map(int, data.split()))
         n, array = data[0], data[1:]
 
         sum = 0

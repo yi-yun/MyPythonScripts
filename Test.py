@@ -4,4 +4,20 @@ def test(target):
     return target
 
 
-print(test([2, 0, 1]))
+def testData():
+    while True:
+        data = input().strip()
+        if data.isspace():
+            print("is space")
+            break
+        else:
+            data = list(map(int, data.split()))
+            n, array = data[0], data[1:]
+
+            sum = 0
+            for i in range(n):
+                sum += array[i]
+            print(sum,)
+
+
+testData()
