@@ -11,7 +11,7 @@
 """
 
 
-class BinNode():
+class TreeNode():
     def __init__(self, val, left=None, right=None):
         self.val = val
         self.left = left
@@ -49,18 +49,16 @@ def preOrder2(root):
     :type root: TreeNode
     :rtype: List[int]
     """
-    result = list()
-    if root == None:
-        return result
-    stack = list()
+    result = []
+    stack = []
     stack.append(root)
     while len(stack) != 0:
-        top = stack.pop()
-        if top.right != None:
-            stack.append(top.right)
-        if top.left != None:
-            stack.append(top.left)
-        result.append(top.val)
+        node = stack.pop()
+        if node is None:
+            continue
+        result.append(node.val)
+        stack.append(node.right)
+        stack.append(node.left)
     return result
 
 
@@ -86,6 +84,37 @@ def inOrder(root):  # 中序
             cur = cur.left
         node = stack.pop()
         res.append(node.val)
-        if node.right:
-            cur = node.right
+        cur = node.right
     return res
+
+
+"""
+    1
+   / \
+  2   3
+ / \   \
+4   5   6
+- 后序遍历顺序：[4 5 2 6 3 1]
+"""
+
+
+def postOrder(root):
+    result = []
+    stack = []
+    stack.append(root)
+    while len(stack) != 0:
+        node = stack.pop()
+        if node is None:
+            continue
+        result.append(node.val)
+        stack.append(node.left)
+        stack.append(node.right)
+    return result[::-1]
+
+
+if __name__ == "__main__":
+    t = TreeNode(1, TreeNode(2, TreeNode(4), TreeNode(5)),
+                 TreeNode(3, None, TreeNode(6)))
+    print(preOrder2(t))
+    print(inOrder(t))
+    print(postOrder(t))
