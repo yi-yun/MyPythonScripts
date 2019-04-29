@@ -20,4 +20,18 @@ def testData():
             print(sum,)
 
 
-testData()
+def fun(source):
+    dic = {}
+    for i in source:
+        if i in dic:
+            dic[i] += 1
+        else:
+            dic[i] = 1
+    return dic
+
+
+if __name__ == "__main__":
+    # testData()
+    dic = fun([1, 2, 5, 3, 2])
+    sorted(dic.items(), key=lambda e: e[1])
+    print(dic)
