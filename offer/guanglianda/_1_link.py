@@ -23,7 +23,9 @@ def fun(source):
 
 
 if __name__ == "__main__":
-    link = Link(1, Link(2, Link(3, Link(4, Link(5)))))
+    # link = Link(1, Link(2, Link(3, Link(4, Link(5)))))
+    # link = Link(1, Link(2))
+    link = Link(1)
     link2 = Link(1, Link(2, Link(3, Link(4, Link(5, Link(6))))))
     print(fun(link).val)
     print(fun(link2).val)
