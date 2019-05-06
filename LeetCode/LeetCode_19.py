@@ -6,7 +6,7 @@ class ListNode:
 
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
-        # fast = slow = head
+        # fast ,slow =head, head
         # if n == 1 and not head.next:
         #     # print(n)
         #     return []
@@ -22,5 +22,22 @@ class Solution:
         #     return None
         # slow.next = slow.next.next
         # return head
-
-        # Solution().removeNthFromEnd([1, 2], 1)
+        if n == 1 and not head.next:
+            return None
+        fast, slow = head, head
+        while n and fast:
+            fast = fast.next
+            n -= 1
+        if not fast:
+            return head.next
+        while fast.next:
+            slow = slow.next
+            fast = fast.next
+        temp = slow.next.next
+        del slow.next
+        slow.next = temp
+if __name__ == "__main__":
+    head = ListNode(1)
+    head.next=ListNode(2)
+    Solution().removeNthFromEnd(head, 1)
+    print(head.val)
